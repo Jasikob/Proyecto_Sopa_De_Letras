@@ -4,17 +4,17 @@
  */
 package proyecto1;
 
+import javax.swing.SwingUtilities;
+
 /**
- *
- * @author Simon
+ * Clase principal para iniciar la aplicación Sopa de Letras.
+ * @author Jesús Schneider
  */
 public class Proyecto1 {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        SwingUtilities.invokeLater(() -> {
+            SopaDeLetrasFrame frame = new SopaDeLetrasFrame();
+            frame.setVisible(true);
+        });
     }
-    
 }
