@@ -210,32 +210,32 @@ public class Buscador {
      */
     private static class ColaEstados {
         private final Estado[] cola;
-        private int frente = 0;
-        private int fin = 0;
-        private int tamaño = 0;
+        private int pFirst = 0;
+        private int pLast = 0;
+        private int size = 0;
 
         ColaEstados(int capacidad) {
             cola = new Estado[capacidad];
         }
 
         void encolar(Estado e) {
-            if (tamaño == cola.length)
+            if (size == cola.length)
                 throw new RuntimeException("Cola llena");
-            cola[fin] = e;
-            fin = (fin + 1) % cola.length;
-            tamaño++;
+            cola[pLast] = e;
+            pLast = (pLast + 1) % cola.length;
+            size++;
         }
 
         Estado desencolar() {
-            if (tamaño == 0) return null;
-            Estado e = cola[frente];
-            frente = (frente + 1) % cola.length;
-            tamaño--;
+            if (size == 0) return null;
+            Estado e = cola[pFirst];
+            pFirst = (pFirst + 1) % cola.length;
+            size--;
             return e;
         }
 
         boolean estaVacia() {
-            return tamaño == 0;
+            return size == 0;
         }
     }
 }
